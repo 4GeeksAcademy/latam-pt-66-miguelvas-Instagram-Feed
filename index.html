@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Instagram Feed</title>
+</head>
+
+<body>
+    <header>
+        <!-- Comienzo navbar -->
+        <nav class="navbar navbar-expand-lg px-3">
+            <i class="bi bi-instagram me-3 logo"></i>
+            <a class="navbar-brand" href="#">InstaFeed</a>
+            <div class="ms-auto d-flex align-items-center">
+
+                <!-- Modal new post -->
+                <button type="button" class="btn btn-success modal-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">Create a new post</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3 gap-3">
+                                        <label for="message-text" class="col-form-label fw-bold">Caption:</label>
+                                        <textarea class="form-control" id="message-text"
+                                            placeholder="Add the caption of your post here"></textarea>
+                                        <div class="d-flex">
+                                            <button type="button" class="btn btn-light btn-icon mt-2 me-2"><i
+                                                    class="bi bi-camera-fill"></i></button>
+                                            <button type="button" class="btn btn-light btn-icon mt-2 m"><i
+                                                    class="bi bi-geo-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success">Publish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin del modal new post -->
+
+                <!-- Dropdown perfil -->
+                <div class="dropdown ms-2">
+                    <button class="btn btn-secondary dropdown-toggle gear-btn" type="button" id="profileDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-gear-fill"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-start" style="left: -150px;" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                        <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="#">Log Out</a></li>
+                    </ul>
+                </div>
+                <!-- Fin dropdown perfil -->
+            </div>
+        </nav>
+        <!-- Fin navbar -->
+    </header>
+
+    <main>
+        <!-- Inicio del contenedor de fotos-->
+        <div class="container py-4">
+            <!-- Botones de alternancia -->
+            <div class="text-center mb-5 buttons">
+                <button id="btnGrid" class="btn btn-outline-primary me-2 active"><i class="bi bi-grid-3x3"></i></button>
+                <button id="btnList" class="btn btn-outline-primary"><i class="bi bi-app"></i></button>
+            </div>
+            <!-- fin de botones de alternancia-->
+
+            <!-- Contenedor de posts -->
+            <div id="postsContainer" class="posts photo-feed grid">
+                <!-- post 1 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/pngegg.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img class="foto-principal"
+                        src="https://plus.unsplash.com/premium_photo-1763668699616-9a89361fc929?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 1 -->
+
+                <!-- post 2 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/nasa.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://plus.unsplash.com/premium_photo-1722018576626-dc10f32a86f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 2 -->
+
+                <!-- post 3 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/flor.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1761469792393-45304668f54a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 3 -->
+                <!-- post 1 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/pngegg.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img class="foto-principal"
+                        src="https://plus.unsplash.com/premium_photo-1763668699616-9a89361fc929?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 1 -->
+
+                <!-- post 2 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/nasa.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://plus.unsplash.com/premium_photo-1722018576626-dc10f32a86f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 2 -->
+
+                <!-- post 3 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/flor.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1761469792393-45304668f54a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 3 -->
+                <!-- post 1 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/pngegg.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img class="foto-principal"
+                        src="https://plus.unsplash.com/premium_photo-1763668699616-9a89361fc929?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 1 -->
+
+                <!-- post 2 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/nasa.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://plus.unsplash.com/premium_photo-1722018576626-dc10f32a86f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 2 -->
+
+                <!-- post 3 -->
+                <div class="photo-item rounded card">
+                    <div class="photo-header">
+                        <div class="user-info">
+                            <img src="img/flor.png" alt="" class="img-profile">
+                            <div class="user-text">
+                                <p class="user-name">Channel Post</p>
+                                <p class="nickname">@channel_insta</p>
+                            </div>
+                        </div>
+                        <svg class="puntos" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-dots-vertical">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        </svg>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1761469792393-45304668f54a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Photo 1">
+                    <div id="buttons-panel">
+                        <div class="feedback">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-send">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
+                        </div>
+                        <div class="feedback-bookmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="like-section">
+                        <p class="like-text">Liked by <strong>4GeeksAcademy</strong>, <strong>html, </strong><strong>Web
+                            </strong> and <strong>100.000 others.</strong></p>
+                    </div>
+                    <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem
+                        natus quidem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam sint vitae iure,
+                        totam error dignissimos distinctio quod veritatis cum.</p>
+                </div>
+                <!-- fin de post 3 -->
+            </div>
+            <!-- fin de contenedor de posts -->
+        </div>
+        <!-- Fin del contenedor de fotos-->
+    </main>
+
+    <!-- Script para alternar vista -->
+    <script>
+        const btnGrid = document.getElementById('btnGrid');
+        const btnList = document.getElementById('btnList');
+        const container = document.getElementById('postsContainer');
+
+        btnGrid.addEventListener('click', () => {
+            container.classList.remove('list');
+            container.classList.add('grid');
+        });
+
+        btnList.addEventListener('click', () => {
+            container.classList.remove('grid');
+            container.classList.add('list');
+        });
+
+        const buttons = document.querySelectorAll('.btn-outline-primary');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Si quieres que solo un botón esté activo a la vez:
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Activar el botón que fue clickeado
+                button.classList.add('active');
+            });
+        });
+    </script>
+    <!-- fin de script para alternar vista -->
+
+    <!-- scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
