@@ -34,6 +34,8 @@ img {
   border-radius: 8px;
 }
 
+/* FIN DE ESTILOS GENERALES */
+
 .navbar-brand {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 3rem;
@@ -60,12 +62,16 @@ img {
   height: 40px;
   font-weight: 700;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.15s ease;
+}
+
+.modal-btns {
+  font-size: 1.5rem !important;
 }
 
 .gear-btn {
@@ -91,8 +97,6 @@ img {
 /* BOTONES DE ALTERNANCIA */
 
 .botones-alt {
-  display: flex;
-  justify-content: center;
   margin: 0 auto;
   font-size: 4rem;
 }
@@ -147,6 +151,7 @@ img {
   width: 40px;
   height: auto;
   transition: transform 0.15s ease, color 0.15s ease;
+  font-size: 4rem;
 }
 
 .puntos:hover {
@@ -159,7 +164,6 @@ img {
 .foto-principal {
   width: 100%;
   height: auto;
-  display: block;
   border-radius: 8px;
 }
 
@@ -169,6 +173,7 @@ img {
   align-items: center;
   width: 100%;
   gap: 15px;
+  font-size: 5rem;
 }
 
 .feedback {
@@ -184,20 +189,21 @@ img {
   justify-content: flex-end;
   margin-top: 10px;
   cursor: pointer;
+  font-size: 4rem;
 }
 
-.feedback svg,
-.feedback-bookmark svg {
+.feedback i,
+.feedback-bookmark i {
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
-.feedback svg:hover,
-.feedback-bookmark svg:hover {
+.feedback i:hover,
+.feedback-bookmark i:hover {
   transform: scale(1.15);
 }
 
-.feedback svg:active,
-.feedback-bookmark svg:active {
+.feedback i:active,
+.feedback-bookmark i:active {
   transform: scale(0.95);
 }
 
